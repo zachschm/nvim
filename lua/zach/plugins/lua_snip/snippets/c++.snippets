@@ -1,0 +1,377 @@
+snippet start
+// Copyright [2023] <Zachary Schmitz>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+
+int main() { 
+    ${0}
+    return 0; 
+}
+endsnippet
+
+snippet startCP
+// Copyright [2023] <Zachary Schmitz>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+
+constexpr int MOD = 1000000007;
+
+int main() { 
+	std::ios_base::sync_with_stdio(false);
+  std::cin.tie(NULL);
+  std::cout.tie(NULL);
+
+	int test;
+	int size;
+
+	while (test--)
+	{
+		cin >> size;
+
+    ${0}
+	}
+    return 0; 
+}
+endsnippet
+
+snippet for
+for (int i = 0; i < size; i++) {
+    ${1: // code here}
+}
+endsnippet
+
+snippet forc
+for (${1:int} ${2:i} = ${3:0}; ${2} < ${4:size}; $2++) {
+    $0
+}
+endsnippet
+
+snippet class
+#ifndef ${1:CLASSNAME}_H
+#define ${1:CLASSNAME}_H
+
+class ${1:ClassName} {
+public:
+    ${1:ClassName}(${2:ConstructorParameters}) {
+        ${3: // Constructor code here}
+    }
+    
+    ${4:~${1:ClassName}}() {
+        ${5: // Destructor code here}
+    }
+    
+    ${6: // Other public member functions here}
+
+private:
+    ${7: // Private member variables here}
+};
+
+#endif // ${1:CLASSNAME}_H
+endsnippet
+
+snippet header
+#pragma once
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+
+using namespace std;
+
+#ifndef ${1:CLASSNAME}_H
+#define ${1:CLASSNAME}_H
+
+class ${1:ClassName} {
+public:
+    ${1:ClassName}(${2:ConstructorParameters}) {
+        ${3: // Constructor code here}
+    }
+    
+    ${4:~${1:ClassName}}() {
+        ${5: // Destructor code here}
+    }
+    
+    ${6: // Other public member functions here}
+
+private:
+    ${7: // Private member variables here}
+};
+
+#endif // ${1:CLASSNAME}_H
+endsnippet
+
+snippet switch
+switch (${1:variable}) {
+    case ${2:constant}:
+        ${3: // code here}
+        break;
+    default:
+        ${4: // code here}
+        break;
+}
+endsnippet
+
+snippet while
+while (${1:condition}) {
+    ${2: // code here}
+}
+endsnippet
+
+snippet try
+try {
+    ${1: // code here}
+} catch (${2:ExceptionType}& ${3:exception}) {
+    ${4: // exception handling code here}
+}
+endsnippet
+
+snippet method
+${1:ReturnType} ${2:ClassName}::${3:methodName}(${4:parameters}) {
+    ${5: // code here}
+}
+endsnippet
+
+
+snippet switch
+switch (${1:variable}) {
+	    case ${2:constant}:
+			        ${3: // code here}
+							        break;
+											    default:
+													        ${4: // code here}
+																	        break;
+}
+endsnippet
+
+snippet while
+while (${1:condition}) {
+	    ${2: // code here}
+}
+endsnippet
+
+snippet try
+try {
+	    ${1: // code here}
+} catch (${2:ExceptionType}& ${3:exception}) {
+	    ${4: // exception handling code here}
+}
+endsnippet
+
+snippet func
+${1:returnType} ${2:functionName}(${3:parameters}) {
+    ${4: // code here}
+}
+endsnippet
+
+snippet method
+${1:ReturnType} ${2:ClassName}::${3:methodName}(${4:parameters}) {
+	    ${5: // code here}
+}
+endsnippet
+
+snippet get
+${1:ReturnType} get${2:PropertyName}() const {
+    return ${3:propertyName};
+}
+
+snippet set
+void set${1:PropertyName}(${2:ParameterType} ${3:parameter}) {
+    ${4:propertyName} = ${3:parameter};
+}
+endsnippet
+
+snippet getC
+${1:ReturnType} ${2:ClassName}::get${3:PropertyName}() const {
+    return ${4:propertyName};
+}
+endsnippet
+
+snippet setC
+void ${1:ClassName}::set${2:PropertyName}(${3:ParameterType} ${4:parameter}) {
+    ${5:propertyName} = ${4:parameter};
+}
+endsnippet
+
+snippet quick
+void quickSort(vector<int>& arr, int low, int high) {
+    if (low < high) {
+        int pivot = partition(arr, low, high);
+        quickSort(arr, low, pivot - 1);
+        quickSort(arr, pivot + 1, high);
+    }
+}
+
+int partition(vector<int>& arr, int low, int high) {
+    int pivot = arr[high];
+    int i = low - 1;
+
+    for (int j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
+}
+endsnippet
+
+snippet binarysearch
+int binarySearch(const vector<int>& nums, int target) {
+    int left = 0;
+    int right = nums.size() - 1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (nums[mid] == target) {
+            return mid;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return -1; // Not found
+}
+endsnippet
+
+snippet dfs
+void dfs(int node, const vector<vector<int>>& graph, vector<bool>& visited) {
+    visited[node] = true;
+
+    for (int neighbor : graph[node]) {
+        if (!visited[neighbor]) {
+            dfs(neighbor, graph, visited);
+        }
+    }
+}
+endsnippet
+
+snippet bfs
+void bfs(int start, const vector<vector<int>>& graph) {
+    vector<bool> visited(graph.size(), false);
+    queue<int> q;
+    q.push(start);
+    visited[start] = true;
+
+    while (!q.empty()) {
+        int node = q.front();
+        q.pop();
+
+        // Process the node here
+
+        for (int neighbor : graph[node]) {
+            if (!visited[neighbor]) {
+                q.push(neighbor);
+                visited[neighbor] = true;
+            }
+        }
+    }
+}
+endsnippet
+
+snippet modadd
+int modAdd(int a, int b, int mod) {
+    int result = (a + b) % mod;
+    if (result < 0) result += mod;
+    return result;
+}
+endsnippet
+
+snippet modsub
+int modSub(int a, int b, int mod) {
+    int result = (a - b) % mod;
+    if (result < 0) result += mod;
+    return result;
+}
+endsnippet
+
+snippet modmul
+int modMul(int a, int b, int mod) {
+    return (a * b) % mod;
+}
+endsnippet
+
+snippet modexp
+int modExp(int base, int exponent, int mod) {
+    int result = 1;
+    while (exponent > 0) {
+        if (exponent % 2 == 1) {
+            result = (result * base) % mod;
+        }
+        base = (base * base) % mod;
+        exponent /= 2;
+    }
+    return result;
+}
+endsnippet
+
+snippet primesieve
+vector<bool> primeSieve(int limit) {
+    vector<bool> isPrime(limit + 1, true);
+    isPrime[0] = isPrime[1] = false;
+
+    for (int i = 2; i * i <= limit; i++) {
+        if (isPrime[i]) {
+            for (int j = i * i; j <= limit; j += i) {
+                isPrime[j] = false;
+            }
+        }
+    }
+
+    return isPrime;
+}
+endsnippet
+
+snippet twopointers
+int left = 0, right = 0;
+while (right < n) {
+    // Update state based on current window [left, right]
+    // Move pointers accordingly based on condition
+    if (/* condition */) {
+        // Move left pointer
+        ++left;
+    } else {
+        // Move right pointer
+        ++right;
+    }
+}
+endsnippet
+
+snippet slidingwindow
+int left = 0, right = 0;
+while (right < n) {
+    // Expand the window
+    // Update state based on current window [left, right]
+    while (/* condition */) {
+        // Update state based on expanded window
+        // Move right pointer
+        ++right;
+    }
+
+    // Shrink the window
+    // Update state based on current window [left, right]
+    while (/* condition */) {
+        // Update state based on shrunken window
+        // Move left pointer
+        ++left;
+    }
+}
+
+luasnip.snippets = snippets
+endsnippet
+
+
+
+
+
